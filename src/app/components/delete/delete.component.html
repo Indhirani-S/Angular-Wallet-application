@@ -1,0 +1,17 @@
+<form>
+    Id:
+    <input type="number" [(ngModel)]="wal.id" name="id" id = "id">
+
+    <input type="button"(click)="deleteWallet()" value="Update">
+    
+
+    <div *ngIf="msg" class="alert alert-success" >
+        <p class="">{{msg}}</p>
+    </div>
+    <div *ngIf="errorMsg" class="alert alert-danger">
+        <p>{{errorMsg}}</p> 
+    </div>
+
+</form>
+
+

@@ -1,0 +1,45 @@
+<p>login works!</p>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+        <div class="text-center">
+          <h1>Login</h1>
+          <h6>Please enter the username & password</h6>
+        </div>
+
+        <form #userForm="ngForm">
+            <div class="mb-3">
+              <label for="email">Email ID</label>
+              <input type="email" [(ngModel)]="wallet.email" #emailRef="ngModel" name="email" id="email"
+              title="Please enter valid email, e.g name@gmail.com" required>
+           <div *ngIf="emailRef.invalid && (emailRef.touched || emailRef.dirty)">
+             <p *ngIf="emailRef.errors?.['required']" class="text-danger">Email is required, cant be balnk.</p>
+             <p *ngIf="emailRef.errors?.['pattern']" class="text-danger">Please enter valid email, name@gmail.com</p>
+           </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="password">Password</label>
+              <input type="password" [(ngModel)]="wallet.password" #passwordRef="ngModel" name="password" id="passwordId"
+          pattern="[a-zA-Z0-9]{7,}" required>
+
+        <div *ngIf="passwordRef.invalid && (passwordRef.touched || passwordRef.dirty)">
+          <p *ngIf="passwordRef.errors?.['required']" class="text-danger">Password is required, cant be balnk.</p>
+          <p *ngIf="passwordRef.errors?.['pattern']" class="text-danger">Password must be at least 7 chars.</p>
+
+        </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" (click)="submitLoginForm()" [disabled]="!userForm.valid" value="Submit">Submit</button>
+        </form>
+
+        <a routerLink="/registration">New User? Click to register</a>
+  
+      </div>
+      </div>
+  
+    </div>
+  
+  </div>

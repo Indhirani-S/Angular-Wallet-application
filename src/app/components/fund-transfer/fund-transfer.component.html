@@ -1,0 +1,58 @@
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+        <div class="text-center">
+          <h1>Fund Transfer</h1>
+        
+        </div>
+        
+
+        <form #userForm="ngForm">
+
+          <div class="mb-3">
+            <label for="id">From ID</label>
+            <input type="number" [(ngModel)]="walletf.id" #idRef="ngModel" name="id" id="id" required>
+            <div *ngIf="idRef.invalid && (idRef.touched || idRef.dirty)">
+              <p *ngIf="idRef.errors?.['required']" class="text-danger">ID is required, cant be balnk.</p>
+              
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="id2">To  ID</label>
+            <input type="number" [(ngModel)]="walletf.id2" #id2Ref="ngModel" name="id2" id="id2" required>
+            <div *ngIf="id2Ref.invalid && (id2Ref.touched || id2Ref.dirty)">
+              <p *ngIf="id2Ref.errors?.['required']" class="text-danger">ID is required, cant be balnk.</p>
+              
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="balance">Enter Amount</label>
+            
+            <input type="number" [(ngModel)]="walletf.balance" #balanceRef="ngModel" name="balance" id="balance" required>
+              <div *ngIf="balanceRef.invalid && (balanceRef.touched || balanceRef.dirty)">
+                <p *ngIf="balanceRef.errors?.['required']" class="text-danger">cant be balnk.</p>
+                <p *ngIf="balanceRef.errors?.['pattern']" class="text-danger">only numbers are allowed.</p>
+              
+              </div>
+        </div> 
+ 
+
+
+            <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="!userForm.valid">Submit</button>
+        
+  </form>
+      </div>
+      </div>
+  
+    </div>
+  
+  </div>
+
+
+
+
+

@@ -1,0 +1,45 @@
+
+
+<div class="container">
+<br>
+    <button type="button" class="btn btn-info" (click)="addFunds()">Add Funds</button>
+    <button type="button" class="btn btn-primary" (click)="withdrawFunds()">Withdraw Funds</button>
+    <button type="button" class="btn btn-info" (click)="fundTransfer()">Fund Transfer</button>
+    <button type="button" class="btn btn-primary" (click)="update()">Update</button>
+    <button type="button" class="btn btn-danger" (click)="delete()">Delete</button>
+    <br>
+
+    <H1>All Wallet details:</H1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Balance</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let wal of wallet">
+                <td>{{wal.id}}</td>
+                <td>{{wal.name}}</td>
+                <td>{{wal.balance}}</td>
+                
+            </tr>
+        </tbody>
+
+    </table>
+    
+    <div *ngIf="msg" class="alert alert-success" >
+        <p class="">{{msg}}</p>
+    </div>
+    <div *ngIf="errorMsg" class="alert alert-danger">
+        <p>{{errorMsg}}</p> 
+    </div>
+</div>
+
+
+
+

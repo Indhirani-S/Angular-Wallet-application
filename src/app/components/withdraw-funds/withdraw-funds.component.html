@@ -1,0 +1,49 @@
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+        <div class="text-center">
+          <h1>Withdraw Funds</h1>
+        
+        </div>
+        
+
+        <form #userForm="ngForm">
+
+          <div class="mb-3">
+            <label for="id">User ID</label>
+            <input type="number" [(ngModel)]="walletf.id" #idRef="ngModel" name="id" id="id" required>
+            <div *ngIf="idRef.invalid && (idRef.touched || idRef.dirty)">
+              <p *ngIf="idRef.errors?.['required']" class="text-danger">ID is required, cant be balnk.</p>
+              
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="balance">Enter Amount</label>
+            
+            <input type="number" [(ngModel)]="walletf.balance" #balanceRef="ngModel" name="balance" id="balance" required>
+              <div *ngIf="balanceRef.invalid && (balanceRef.touched || balanceRef.dirty)">
+                <p *ngIf="balanceRef.errors?.['required']" class="text-danger">cant be balnk.</p>
+                <p *ngIf="balanceRef.errors?.['pattern']" class="text-danger">only numbers are allowed.</p>
+              
+              </div>
+        </div> 
+ 
+
+
+            <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="!userForm.valid">Submit</button>
+        
+  </form>
+      </div>
+      </div>
+  
+    </div>
+  
+  </div>
+
+
+
+
